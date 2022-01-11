@@ -9,7 +9,9 @@ input,
 button {
   display: block;
   margin: 5px;
-  width: 8vw;
+  width: 10vw;
+  min-width: 150px;
+  max-width: 230px;
 }
 
 button {
