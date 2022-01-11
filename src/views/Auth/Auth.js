@@ -18,7 +18,10 @@ export default function Auth({ setCurrentUser }) {
         type === 'login'
           ? await users.signInUser(email, password)
           : await users.signUpUser(email, password);
-      setCurrentUser(response);
+      setMessage('Success! Redirecting...');
+      setTimeout(() => {
+        setCurrentUser(response);
+      }, 1000);
     } catch {
       setMessage('Invalid email or password');
     }
