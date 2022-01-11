@@ -28,7 +28,19 @@ export default function Auth() {
   return (
     <>
       {currentUser ? (
-        <h1>Success!</h1>
+        <>
+          <h1>Welcome.</h1>
+          <h2>Now... chill.</h2>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/5qap5aO4i9A"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </>
       ) : (
         <div>
           <Header {...{ type, setType, setMessage }} />
