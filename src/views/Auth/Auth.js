@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import * as users from '../../services/users';
+import AuthForm from '../../components/AuthForm/AuthForm';
 import './Auth.css';
+import Header from '../../components/Header/Header';
 
 export default function Auth() {
   const [type, setType] = useState('login');
@@ -26,48 +28,11 @@ export default function Auth() {
   return (
     <>
       {currentUser ? (
-        <h1>Success</h1>
+        <h1>Success!</h1>
       ) : (
         <div>
-          {type === 'login' ? (
-            <h1
-              onClick={() => {
-                setType('register');
-                setMessage('');
-              }}
-            >
-              Login
-            </h1>
-          ) : (
-            <h1
-              onClick={() => {
-                setType('login');
-                setMessage('');
-              }}
-            >
-              Register
-            </h1>
-          )}
-          <p style={{ color: '#ff0000' }}>{message}</p>
-          <form className="auth-form">
-            <label htmlFor="email">E-mail:</label>
-            <input
-              name="email"
-              value={email}
-              type="email"
-              placeholder="email@example.com"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              name="password"
-              value={password}
-              type="password"
-              placeholder="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleSubmit}>Submit</button>
-          </form>
+          <Header {...{ type, setType, setMessage }} />
+          <AuthForm {...{ email, setEmail, password, setPassword, message, handleSubmit }} />
         </div>
       )}
     </>
